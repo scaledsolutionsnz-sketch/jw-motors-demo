@@ -3,124 +3,71 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Private Feedback | JW Motors, Christchurch</title>
-<meta name="description" content="Tell JW Motors what we could have done better. Your feedback comes straight to us, privately." />
-<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<title>Your Feedback | JW Motors, Christchurch</title>
+<meta name="description" content="Share private feedback with the JW Motors team. We read every message and want to put things right." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<div class="review-wrap">
+  <div class="review-card">
+    <a href="index.html" class="logo">JW<span class="dot">.</span>Motors</a>
 
-<header class="nav scrolled">
-  <div class="nav-inner">
-    <a class="brand" href="index.html" aria-label="JW Motors home">
-      <span class="brand-mark">JW</span>
-      <span><span class="brand-name">JW Motors</span><span class="brand-sub">Christchurch</span></span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-    <div class="nav-cta"><a class="btn btn-primary" href="tel:+64274762404">📞 <span class="long">027 476 2404</span></a></div>
-  </div>
-</header>
-
-<section class="page-head">
-  <div class="wrap">
-    <span class="eyebrow">We're listening</span>
-    <h1>Tell us what went wrong</h1>
-    <p>We'd rather hear it straight so we can put it right. This feedback comes directly to the JW Motors team — it isn't posted publicly.</p>
-  </div>
-</section>
-
-<section class="band band-bone">
-  <div class="wrap">
-    <div class="review-card" style="text-align:left;">
-      <!-- FORM -->
-      <form class="form" id="fbForm" action="https://formsubmit.co/wilcodealdirect@hotmail.com" method="POST" style="background:transparent;border:0;padding:0;">
+    <div id="formState">
+      <h1>Tell us what happened</h1>
+      <p>Sorry we didn't get it right. Your feedback goes straight to the team — we read every one and want to fix it.</p>
+      <form action="https://formsubmit.co/wilcodealdirect@hotmail.com" method="POST" style="text-align:left;margin-top:24px" id="pform">
         <input type="hidden" name="_subject" value="Private feedback from JW Motors website" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value="#" id="nextField" />
-        <div class="form-row">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required placeholder="Your name" />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="you@email.co.nz" />
-          </div>
-        </div>
-        <div class="field">
-          <label for="rating">Your rating</label>
-          <input id="rating" name="rating" type="text" readonly />
-        </div>
-        <div class="field">
-          <label for="feedback">What could we have done better?</label>
-          <textarea id="feedback" name="feedback" required placeholder="Tell us what happened and how we can make it right."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send feedback</button>
-        <p class="form-note">Goes straight to JW Motors. No reCAPTCHA, never shared.</p>
+        <input type="text" name="_honey" style="display:none" />
+        <div class="field"><label for="name">Name</label><input id="name" name="Name" type="text" required placeholder="Your name" /></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" required placeholder="you@email.co.nz" /></div>
+        <div class="field"><label for="rating">Your rating</label><input id="rating" name="Rating" type="text" readonly value="" /></div>
+        <div class="field"><label for="fb">What could we have done better?</label><textarea id="fb" name="Feedback" required placeholder="Tell us what happened…"></textarea></div>
+        <button class="btn btn-primary" type="submit" style="width:100%">Send feedback</button>
       </form>
-
-      <!-- SUCCESS STATE -->
-      <div class="success" id="success">
-        <div class="check" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
-        <h2 style="font-size:1.8rem;">Thank you</h2>
-        <p style="color:var(--muted-light);margin-top:10px;">We've got your feedback and we'll be in touch to put things right. We appreciate you giving us the chance.</p>
-        <a class="btn btn-primary" href="index.html" style="margin-top:22px;">Back to home</a>
-      </div>
     </div>
-  </div>
-</section>
 
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-bottom" style="border-top:0;padding-top:0;">
-      <span>© 2026 JW Motors · Christchurch</span>
-      <span><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="index.html">Home</a></span>
+    <div id="thanks" class="success-state">
+      <div class="success-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h1>Thank you</h1>
+      <p>We've got your feedback and someone from JW Motors will be in touch. We appreciate you giving us the chance to put it right.</p>
+      <a href="index.html" class="btn btn-primary">Back to home</a>
     </div>
-  </div>
-</footer>
 
+    <a href="review.html" class="back-link" id="backLink">← Back to rating</a>
+  </div>
+</div>
 <script>
-  // Pre-fill rating from ?rating=
+  // Pre-fill rating from URL
   var params = new URLSearchParams(window.location.search);
   var rating = params.get("rating");
-  var map = { "1": "★ (1 / 5)", "2": "★★ (2 / 5)", "3": "★★★ (3 / 5)" };
   var ratingField = document.getElementById("rating");
-  ratingField.value = map[rating] || "Not rated";
+  if (rating) {
+    var n = Math.max(1, Math.min(5, parseInt(rating,10) || 0));
+    ratingField.value = "★".repeat(n) + "☆".repeat(5 - n) + "  (" + n + "/5)";
+  } else {
+    ratingField.value = "Not rated";
+  }
 
-  // FormSubmit AJAX submit -> show success state without leaving page
-  var form = document.getElementById("fbForm");
-  var success = document.getElementById("success");
+  // Handle submit via fetch to show success state without leaving the page
+  var form = document.getElementById("pform");
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    var btn = form.querySelector("button[type=submit]");
-    btn.textContent = "Sending…";
-    btn.disabled = true;
-    fetch("https://formsubmit.co/ajax/wilcodealdirect@hotmail.com", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify({
-        name: form.name.value,
-        email: form.email.value,
-        rating: ratingField.value,
-        feedback: form.feedback.value,
-        _subject: "Private feedback from JW Motors website"
-      })
-    }).then(function () {
-      form.style.display = "none";
-      success.classList.add("show");
-    }).catch(function () {
-      form.style.display = "none";
-      success.classList.add("show");
-    });
+    var data = new FormData(form);
+    fetch(form.action, { method: "POST", body: data, headers: { "Accept": "application/json" } })
+      .then(function(){ showThanks(); })
+      .catch(function(){ showThanks(); });
   });
+  function showThanks(){
+    document.getElementById("formState").style.display = "none";
+    document.getElementById("backLink").style.display = "none";
+    document.getElementById("thanks").classList.add("show");
+  }
 </script>
 </body>
 </html>

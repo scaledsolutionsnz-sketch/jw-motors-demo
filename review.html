@@ -4,86 +4,50 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Leave a Review | JW Motors, Christchurch</title>
-<meta name="description" content="Tell us how we did. Rate your experience with JW Motors in Christchurch." />
-<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta name="description" content="Tell us how JW Motors did. Rate your experience with our Christchurch used car and servicing team." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-<!-- NAV -->
-<header class="nav scrolled">
-  <div class="nav-inner">
-    <a class="brand" href="index.html" aria-label="JW Motors home">
-      <span class="brand-mark">JW</span>
-      <span><span class="brand-name">JW Motors</span><span class="brand-sub">Christchurch</span></span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#reviews">Reviews</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-    <div class="nav-cta"><a class="btn btn-primary" href="tel:+64274762404">📞 <span class="long">027 476 2404</span></a></div>
-  </div>
-</header>
-
-<section class="page-head">
-  <div class="wrap">
-    <span class="eyebrow">Your feedback</span>
+<div class="review-wrap">
+  <div class="review-card">
+    <a href="index.html" class="logo">JW<span class="dot">.</span>Motors</a>
     <h1>How did we do?</h1>
-    <p>Your experience with JW Motors matters. Tap a rating below — it only takes a moment.</p>
-  </div>
-</section>
-
-<section class="band band-bone">
-  <div class="wrap">
-    <div class="review-card">
-      <h2 style="font-size:1.8rem;">Rate your experience</h2>
-      <p class="star-hint">Tap the stars to leave your rating</p>
-      <div class="star-row" id="stars">
-        <button data-val="1" aria-label="1 star">★</button>
-        <button data-val="2" aria-label="2 stars">★</button>
-        <button data-val="3" aria-label="3 stars">★</button>
-        <button data-val="4" aria-label="4 stars">★</button>
-        <button data-val="5" aria-label="5 stars">★</button>
-      </div>
-      <p class="star-hint" id="hint">5 stars sends you to Google · lower ratings come straight to us privately</p>
+    <p>Tap a star to rate your experience with JW Motors.</p>
+    <div class="star-pick" id="stars">
+      <button data-v="1" aria-label="1 star">★</button>
+      <button data-v="2" aria-label="2 stars">★</button>
+      <button data-v="3" aria-label="3 stars">★</button>
+      <button data-v="4" aria-label="4 stars">★</button>
+      <button data-v="5" aria-label="5 stars">★</button>
     </div>
+    <div class="star-label" id="label">&nbsp;</div>
+    <p class="small">4–5 stars takes you to Google. 3 or fewer sends your feedback privately to the team.</p>
+    <a href="index.html" class="back-link">← Back to site</a>
   </div>
-</section>
-
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-bottom" style="border-top:0;padding-top:0;">
-      <span>© 2026 JW Motors · Christchurch</span>
-      <span><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="index.html">Home</a></span>
-    </div>
-  </div>
-</footer>
-
+</div>
 <script>
-  // 4-5 stars -> Google review; 1-3 -> private feedback form
-  var GOOGLE_REVIEW_URL = "https://g.page/r/PLACEHOLDER";
-  var stars = document.querySelectorAll("#stars button");
-  var row = document.getElementById("stars");
-  function paint(n) {
-    stars.forEach(function (s, i) { s.style.color = i < n ? "var(--accent)" : "#3a3e48"; });
-  }
-  stars.forEach(function (btn) {
-    btn.addEventListener("mouseenter", function () { paint(+btn.dataset.val); });
-    btn.addEventListener("focus", function () { paint(+btn.dataset.val); });
-    btn.addEventListener("click", function () {
-      var val = +btn.dataset.val;
-      paint(val);
-      if (val >= 4) { window.location.href = GOOGLE_REVIEW_URL; }
-      else { window.location.href = "private.html?rating=" + val; }
+  // Placeholder Google review link — replace with the live Google profile link.
+  var GOOGLE_REVIEW_URL = "https://g.page/r/PLACEHOLDER/review";
+  var labels = {1:"We'd like to put this right",2:"We'd like to put this right",3:"Tell us how to improve",4:"Great — thank you!",5:"Awesome — thank you!"};
+  var label = document.getElementById("label");
+  document.querySelectorAll("#stars button").forEach(function(btn){
+    var v = parseInt(btn.dataset.v,10);
+    btn.addEventListener("mouseenter", function(){ paint(v); label.textContent = labels[v]; });
+    btn.addEventListener("click", function(){
+      if (v >= 4) { window.location.href = GOOGLE_REVIEW_URL; }
+      else { window.location.href = "private.html?rating=" + v; }
     });
   });
-  row.addEventListener("mouseleave", function () { paint(0); });
-  paint(0);
+  document.getElementById("stars").addEventListener("mouseleave", function(){ paint(0); label.innerHTML = "&nbsp;"; });
+  function paint(n){
+    document.querySelectorAll("#stars button").forEach(function(b){
+      b.classList.toggle("lit", parseInt(b.dataset.v,10) <= n);
+    });
+  }
 </script>
 </body>
 </html>
